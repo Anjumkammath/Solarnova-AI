@@ -1,29 +1,147 @@
-# Solarnova AI : Automatic Dust Detection &amp; Cleaning System implemented on a solar panel
+#SolarNova AI: Automatic Dust Detection & Cleaning System for Solar Panels
+SolarNova AI is an intelligent, AI-powered embedded system that automatically detects dust accumulation on solar panels and activates a cleaning mechanism—all without manual intervention. Leveraging a lightweight MobileNet CNN deployed on a Raspberry Pi, the system offers a cost-effective, sustainable solution to maintaining optimal solar energy efficiency.
 
-SolarNova AI is an automated, AI-powered system that detects dust on solar panels using MobileNet (CNN model) and triggers a cleaning mechanism using servo motors. Designed for embedded systems like Raspberry Pi, it offers a smart, sustainable solution to maintain the efficiency of solar energy harvesting with zero manual intervention. Solar Nova AI is an intelligent system designed to detect dirt accumulation on solar panels and automatically trigger a cleaning mechanism using a Raspberry Pi, stepper motors, and a fine-tuned deep learning model.
+🚀 Key Features
+🔍 Real-Time Image Capture and Classification
 
-🚀 Features
-Real-time image capture and classification
-Lightweight MobileNet CNN for efficient inference
-Dust detection with high accuracy
-Automated cleaning using servo motors and Raspberry Pi
-Cost-effective and environmentally friendly solution
+🧠 MobileNet-Based Deep Learning for Dust Detection
+
+⚙️ Automated Cleaning via Servo/Stepper Motors
+
+🧩 Embedded Deployment on Raspberry Pi
+
+💸 Low-Cost and Eco-Friendly Maintenance
+
+♻️ Reduces Manual Labor and Increases Solar Output Efficiency
+
 🧠 How It Works
-Image Capture: A webcam continuously monitors solar panel surfaces.
-Preprocessing: Captured images are resized and normalized (224x224).
-Classification: MobileNet identifies whether the panel is clean or dirty.
-Action Trigger: If dirt is detected, Raspberry Pi activates a cleaning mechanism (brush/motor).
-Continuous Monitoring: The system runs in real-time, ensuring optimal solar panel performance.
+Image Capture
+A camera module (USB or Pi Camera) continuously monitors the solar panel surface.
+
+Preprocessing
+Captured images are resized to 224x224 and normalized for MobileNet input.
+
+Classification
+A fine-tuned MobileNet model classifies the panel state as "Clean" or "Dusty".
+
+Action Trigger
+If dust is detected confidently, the Raspberry Pi activates a cleaning mechanism using servo/stepper motors.
+
+Continuous Monitoring
+The system runs in real-time, ensuring consistent performance and maximum solar output.
+
 🛠️ Tech Stack
-Python
-TensorFlow / Keras
-OpenCV
-MobileNet (for deep learning-based classification)
-Raspberry Pi (hardware integration)
-Servo Motors (for physical cleaning mechanism)
-Camera Module / USB Webcam
-Setup and Usage Instructions
-1. Environment Setup
+Technology	Purpose
+Python	Scripting and Integration
+TensorFlow/Keras	Deep learning model development
+OpenCV	Image processing and camera integration
+MobileNet	Lightweight CNN for classification
+Raspberry Pi	Edge computing device
+Servo/Stepper Motors	Hardware for the cleaning mechanism
+Camera Module / USB Webcam	for image acquisition
+
+⚙️ Setup and Usage Instructions
+1️⃣ Environment Setup
+Use a virtual environment (recommended):
+
+bash
+Copy
+Edit
+python3 -m venv solarnova-env
+source solarnova-env/bin/activate  # Linux/macOS
+bash
+Copy
+Edit
+solarnova-env\Scripts\activate  # Windows
+Install the required dependencies:
+
+bash
+Copy
+Edit
+pip install -r requirements.txt
+2️⃣ Prepare Dataset
+📦 Download the dataset (~1GB):
+👉 Download Detect_Solar_Dust (Insert Google Drive or relevant link)
+
+Organize the dataset as follows:
+
+bash
+Copy
+Edit
+dataset/
+├── clean/      # Images of clean solar panels
+└── dirt/       # Images of dusty solar panels
+📝 Ensure images have a resolution of at least 400x800 pixels.
+The training script will automatically resize them.
+
+3️⃣ Train the Model
+Run the training script:
+
+bash
+Copy
+Edit
+python src/train_model.py
+This will:
+
+Load a pre-trained MobileNet model
+
+Fine-tune it using your dataset
+
+Save the trained model as FineTuned_MobileNet.h5
+
+4️⃣ Convert to TensorFlow Lite
+Convert the model for lightweight edge deployment:
+
+bash
+Copy
+Edit
+python src/convert_to_tflite.py
+This will generate:
+
+tflite_model.tflite → Optimized for Raspberry Pi
+
+5️⃣ Run Live Dust Detection & Cleaning
+Execute the live inference and control script:
+
+bash
+Copy
+Edit
+python src/predict_live.py
+Features:
+Captures live video frames
+
+Performs inference every 2 seconds
+
+If dust is detected with confidence > 0.90, it activates cleaning motors
+
+Displays live feed with real-time classification
+
+Stops when you press q
+
+🔐 On Raspberry Pi, for GPIO access, you may need to use:
+
+bash
+Copy
+Edit
+sudo python src/predict_live.py
+🔧 Hardware & Configuration Notes
+Ensure the camera is correctly connected and accessible (/dev/video0 for Linux/RPi or 0 for OpenCV).
+
+GPIO pin configurations and motor logic should be updated in predict_live.py based on your hardware setup.
+
+The cleaning mechanism uses stepper motors controlled through a motor driver (e.g., L298N or ULN2003).
+
+📚 Publication
+📖 SolarNova AI: Dynamic Dust Detection, Cleaning, and Panel Orientation for Enhanced Solar Efficiency with AI Technologies
+Advances in Intelligent Systems and Computing, Springer, 2024
+🔗 Read the paper on Springer
+
+🙋 Contact & Support
+For queries, feature requests, or contributions, please open an issue or contact the maintainer.
+
+🌱 Acknowledgments
+Thanks for exploring SolarNova AI — promoting clean energy through smart automation.
+Let’s make solar smarter, cleaner, and more efficient — together!p
 Install Python and the required packages. It's recommended to use a virtual environment:
 
 python3 -m venv solarnova-env source solarnova-env/bin/activate # On Linux/MacOS
@@ -33,7 +151,7 @@ solarnova-env\Scripts\activate # On Windows
 
 Install dependencies:
 
-2. Prepare Dataset
+2. Prepare the Dataset
 📦 Dataset Download
 The full Solar Dust Detection dataset (~1 GB) is available via Google Drive:
 
@@ -52,7 +170,7 @@ python src/train_model.py
 
 This script will:
 
-Load a pre-trained MobileNet model (Mobilenet.h5)
+Load a pre-trained MobileNet model (MobileNet.h5)
 Fine-tune it on your clean and dusty solar panel images
 Save the fine-tuned model as FineTuned_Mobilenet.h5
 4. Convert Fine-Tuned Model to TensorFlow Lite
@@ -73,7 +191,7 @@ Features:
 
 Captures live frames from the connected camera
 Runs TensorFlow Lite model inference every 2 seconds
-If dust detected with confidence > 0.9, activates stepper motors to clean panels
+If dust is detected with confidence > 0.9, it activates the stepper motors to clean the panels
 Displays live camera feed with real-time updates
 Stops when you press q
 Additional Notes
@@ -81,7 +199,7 @@ Make sure your camera device is accessible (/dev/video0 on Linux/RPi or 0 for Op
 
 Adjust GPIO pin assignments and motor steps in predict_live.py to your hardware setup.
 
-You may need to run scripts with sudo on Raspberry Pi for GPIO access:
+You may need to run scripts with sudo on the Raspberry Pi for GPIO access:
 
 sudo python src/predict_live.py
 
