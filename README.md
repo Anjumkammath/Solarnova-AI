@@ -1,8 +1,9 @@
-#SolarNova AI: Automatic Dust Detection & Cleaning System for Solar Panels
+# SolarNova AI: Automatic Dust Detection & Cleaning System for Solar Panels
 
 SolarNova AI is an intelligent, AI-powered embedded system that automatically detects dust accumulation on solar panels and activates a cleaning mechanism—all without manual intervention. Leveraging a lightweight MobileNet CNN deployed on a Raspberry Pi, the system offers a cost-effective, sustainable solution to maintaining optimal solar energy efficiency.
 
-##🚀 Key Features
+## 🚀 Key Features
+
 🔍 Real-Time Image Capture and Classification
 
 🧠 MobileNet-Based Deep Learning for Dust Detection
@@ -15,7 +16,7 @@ SolarNova AI is an intelligent, AI-powered embedded system that automatically de
 
 ♻️ Reduces Manual Labor and Increases Solar Output Efficiency
 
-🧠 How It Works
+### 🧠 How It Works
 Image Capture
 A camera module (USB or Pi Camera) continuously monitors the solar panel surface.
 
