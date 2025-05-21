@@ -1,0 +1,23 @@
+🧠 Core Workflow of SolarNova AI
+At the heart of SolarNova AI is a real-time automation loop that integrates computer vision and embedded control to ensure autonomous solar panel maintenance. Here's how it works:
+
+📸 Live Frame Capture
+Utilizes OpenCV to continuously stream video from a connected USB or Pi camera, monitoring the surface of the solar panel.
+
+🖼️ Preprocessing
+Each captured frame is resized to 224x224 pixels, converted into a NumPy array, and normalized using preprocess_input to match the input requirements of MobileNetV2.
+
+🤖 Inference with TensorFlow Lite
+The preprocessed frame is passed to a TensorFlow Lite model, fine-tuned to classify the panel condition as either "clean" or "dirt".
+
+🚨 Detection & Threshold Logic
+If the model predicts "dirt" with a confidence score greater than 90%, the system initiates a cleaning routine.
+
+⚙️ Motor Control & Cleaning Mechanism
+Cleaning is performed by a stepper motor connected via GPIO pins on the Raspberry Pi. The motor activates a rotating brush mechanism, managed by the rotate() and clean() functions, ensuring thorough dust removal.
+
+🛑 Safety & Termination
+The system provides a live video feed for monitoring and can be safely terminated at any point by pressing the 'q' key on the keyboard.
+
+This intelligent automation loop ensures that solar panels are consistently maintained at peak efficiency—without the need for manual intervention.
+SolarNova AI embodies a smart, scalable, and eco-friendly solution for modern energy systems
