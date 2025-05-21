@@ -1,6 +1,6 @@
-# 🌞 SolarNova AI: Automatic Dust Detection & Cleaning System for Solar Panels
+# SolarNova AI: Automatic Dust Detection & Cleaning System for Solar Panels
 
-**SolarNova AI** is an intelligent, AI-powered embedded system that detects dust accumulation on solar panels and autonomously triggers a cleaning mechanism—without manual intervention. Built using a fine-tuned MobileNet CNN and deployed on a Raspberry Pi, the system ensures optimal solar panel performance in a cost-effective, sustainable manner.
+**SolarNova AI** is an intelligent, AI-powered embedded system that detects dust accumulation on solar panels and autonomously triggers a cleaning mechanism, without manual intervention. Built using a fine-tuned MobileNet CNN and deployed on a Raspberry Pi, the system ensures optimal solar panel performance in a cost-effective, sustainable manner.
 
 ---
 
@@ -73,7 +73,7 @@ pip install -r requirements.txt
 
 ---
 
-### 2️⃣ Prepare Dataset
+### 2️⃣ Prepare the Dataset
 
 📦 Download the dataset (~1GB):  
 👉 [Download Detect_Solar_Dust](#) *(Insert Google Drive or relevant link)*
@@ -150,7 +150,7 @@ sudo python src/predict_live.py
 ## 🔧 Hardware & Configuration Notes
 
 - Ensure the camera is accessible (`/dev/video0` for Linux/RPi or `0` in OpenCV).
-- Update GPIO pin numbers and motor logic in `predict_live.py` according to your circuit.
+- Update GPIO PINs and motor logic in `predict_live.py` according to your circuit.
 - Use motor driver boards like **L298N** or **ULN2003** for motor control.
 - Test motors and camera independently before integration.
 
