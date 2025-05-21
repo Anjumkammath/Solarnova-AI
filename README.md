@@ -16,6 +16,7 @@ SolarNova AI is an intelligent, AI-powered embedded system that automatically de
 
 ♻️ Reduces Manual Labor and Increases Solar Output Efficiency
 
+
 ### 🧠 How It Works
 Image Capture
 A camera module (USB or Pi Camera) continuously monitors the solar panel surface.
@@ -32,7 +33,8 @@ If dust is detected confidently, the Raspberry Pi activates a cleaning mechanism
 Continuous Monitoring
 The system runs in real-time, ensuring consistent performance and maximum solar output.
 
-🛠️ Tech Stack
+
+#### 🛠️ Tech Stack
 Technology	Purpose
 Python	Scripting and Integration
 TensorFlow/Keras	Deep learning model development
@@ -42,7 +44,7 @@ Raspberry Pi	Edge computing device
 Servo/Stepper Motors	Hardware for the cleaning mechanism
 Camera Module / USB Webcam	for image acquisition
 
-⚙️ Setup and Usage Instructions
+##### ⚙️ Setup and Usage Instructions
 1️⃣ Environment Setup
 Use a virtual environment (recommended):
 
