@@ -18,6 +18,7 @@ SolarNova AI is an intelligent, AI-powered embedded system that automatically de
 
 
 ### 🧠 How It Works
+
 Image Capture
 A camera module (USB or Pi Camera) continuously monitors the solar panel surface.
 
@@ -35,6 +36,7 @@ The system runs in real-time, ensuring consistent performance and maximum solar 
 
 
 #### 🛠️ Tech Stack
+
 Technology	Purpose
 Python	Scripting and Integration
 TensorFlow/Keras	Deep learning model development
@@ -45,6 +47,7 @@ Servo/Stepper Motors	Hardware for the cleaning mechanism
 Camera Module / USB Webcam	for image acquisition
 
 ##### ⚙️ Setup and Usage Instructions
+
 1️⃣ Environment Setup
 Use a virtual environment (recommended):
 
@@ -63,6 +66,7 @@ bash
 Copy
 Edit
 pip install -r requirements.txt
+
 2️⃣ Prepare Dataset
 📦 Download the dataset (~1GB):
 👉 Download Detect_Solar_Dust (Insert Google Drive or relevant link)
@@ -127,7 +131,7 @@ Stops when you press q
 bash
 Copy
 Edit
-sudo python src/predict_live.py
+
 🔧 Hardware & Configuration Notes
 Ensure the camera is correctly connected and accessible (/dev/video0 for Linux/RPi or 0 for OpenCV).
 
@@ -135,7 +139,8 @@ GPIO pin configurations and motor logic should be updated in predict_live.py bas
 
 The cleaning mechanism uses stepper motors controlled through a motor driver (e.g., L298N or ULN2003).
 
-📚 Publication
+###### 📚 Publication
+
 📖 SolarNova AI: Dynamic Dust Detection, Cleaning, and Panel Orientation for Enhanced Solar Efficiency with AI Technologies
 Advances in Intelligent Systems and Computing, Springer, 2024
 🔗 Read the paper on Springer
