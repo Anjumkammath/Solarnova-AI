@@ -76,7 +76,6 @@ pip install -r requirements.txt
 ### 2️⃣ Prepare the Dataset
 
 📦 Download the dataset (~1GB):  
-👉 [Download Detect_Solar_Dust](#) *(Insert Google Drive or relevant link)*
 
 Organize images into the following structure:
 
